@@ -17,7 +17,7 @@ resource "aws_internet_gateway" "igw" {
 
   tags = merge(local.tags, { Name = "${var.env}-igw"})
   }
-}
+
 
 resource "aws_route" "igw" {
   for_each               = lookup(lookup(module.subnets, "public", null), "route_table_ids", null)
